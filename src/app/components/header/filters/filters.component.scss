@@ -1,0 +1,20 @@
+.filters_wrapper{
+   display: none;
+}
+.isCssClassOpen{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #E5E5E5;
+   height: 50px;
+}
+.filters{
+   margin: 0 5px;
+}
+.filters_input{
+   background: #EFEFEF;
+   border: none;
+}
+.filters_input:focus{
+   outline: 0;
+}
