@@ -1,1 +1,8 @@
-<app-header></app-header>
+<app-header 
+    (onInputValue)='onInputFilters($event)'
+    (inputClick)='onInputClick($event)'>
+</app-header>
+<app-results-block 
+    [isFiltersWorks]='inputContent'
+    [isShowItems]='isItemsOpen'>
+</app-results-block>

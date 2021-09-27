@@ -1,4 +1,6 @@
-export const youTubeResponse = {
+import { ISearchRespons } from "../models/search-respons.model";
+
+export const youTubeResponse: ISearchRespons = {
     "kind": "youtube#videoListResponse",
     "etag": "\"Fznwjl6JEQdo1MGvHOGaz_YanRU/Cmodw7c5XPTM8Yg3kMXelihxek4\"",
     "pageInfo": {

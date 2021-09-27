@@ -16,19 +16,21 @@ interface ISnippet {
         medium: IThumbnails;
         high: IThumbnails;
         maxres: IThumbnails;
+        standard: IThumbnails;
     };
     channelTitle: string;
     tags: string[];
     categoryId: string;
     liveBroadcastContent: string;
     localized: ILocalized;
+    defaultLanguage?: string;
     defaultAudioLanguage: string;
 }
 
 interface IThumbnails {
     url: string;
-    width: string;
-    height: string;
+    width: number;
+    height: number;
 }
 
 interface ILocalized {

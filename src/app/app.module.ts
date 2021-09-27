@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
-import {FiltersComponent} from './components/header/filters/filters.component';
+import { FiltersComponent } from './components/header/filters/filters.component';
 import { HeaderLogoComponent } from './components/header/header-logo/header-logo.component';
 import { HeaderInputComponent } from './components/header/header-input/header-input.component';
 import { HeaderSettingsComponent } from './components/header/header-settings/header-settings.component';
 import { HeaderLoginComponent } from './components/header/header-login/header-login.component';
+import { ResultsBlockComponent } from './components/results-block/results-block.component';
+import { SortingInputPipe } from './pipes/sorting-input.pipe';
+import { StyleDirectivDirective } from './directives/style-directiv.directive';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { HeaderLoginComponent } from './components/header/header-login/header-lo
     HeaderLogoComponent,
     HeaderInputComponent,
     HeaderSettingsComponent,
-    HeaderLoginComponent
+    HeaderLoginComponent,
+    ResultsBlockComponent,
+    SortingInputPipe,
+    StyleDirectivDirective,
   ],
   imports: [
     BrowserModule,

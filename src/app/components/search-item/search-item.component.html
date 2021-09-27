@@ -1,1 +1,22 @@
-<p>search-item works!</p>
+<div
+  class="item_wrapper"
+  [ngClass]="{
+    blueClass: myDate < 750,
+    redClass: myDate > 750 && myDate < 1000,
+    yellowClass: myDate > 1000
+  }"
+>
+  <img [src]="imgSrc" alt="img" class="item_img" />
+  <div class="item_icons">
+    <img src="../../../assets/image/viewed.png" alt="viewed" />
+    <span>{{ view }}</span>
+    <img src="../../../assets/image/liked.png" alt="liked" />
+    <span>{{ like }}</span>
+    <img src="../../../assets/image/dislike.png" alt="dislike" />
+    <span>{{ disLike }}</span>
+    <img src="../../../assets/image/Group 9.png" alt="group" />
+    <span>{{ comment }}</span>
+  </div>
+  <div class="item_title">{{ title }}</div>
+  <button type="submit" class="btn_search_item">more...</button>
+</div>
