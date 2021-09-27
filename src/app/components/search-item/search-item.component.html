@@ -1,11 +1,4 @@
-<div
-  class="item_wrapper"
-  [ngClass]="{
-    blueClass: myDate < 750,
-    redClass: myDate > 750 && myDate < 1000,
-    yellowClass: myDate > 1000
-  }"
->
+<div class="item_wrapper" [appStyleDirectiv]="publicDate">
   <img [src]="imgSrc" alt="img" class="item_img" />
   <div class="item_icons">
     <img src="../../../assets/image/viewed.png" alt="viewed" />

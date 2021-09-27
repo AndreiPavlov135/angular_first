@@ -14,14 +14,8 @@ export class SearchItemComponent implements OnInit, OnChanges {
   @Input() title!: string;
   @Input() publicDate!: string;
 
-  public myDate!: number;
   constructor() {}
 
-  ngOnInit(): void {
-    this.myDate = Math.ceil(
-      (new Date().getTime() - Date.parse(this.publicDate)) / (1000 * 3600 * 24)
-    );
-    console.log(this.myDate);
-  }
+  ngOnInit(): void {}
   ngOnChanges() {}
 }
