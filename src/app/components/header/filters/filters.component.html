@@ -1,7 +1,21 @@
-<div [class.isCssClassOpen]='isOpen' class="filters_wrapper">
-    <span class="filters">Sorting by:</span>
-    <a href="/" class="filters">date</a>
-    <a href="/" class="filters">count of viewes</a>
-    <span class="filters">by word or sentance</span>
-    <input type="text" class="filters filters_input" (input)='onInput($event)'>
+<div [class.isCssClassOpen]="isOpen" class="filters_wrapper">
+  <span class="filters">Sorting by:</span>
+  <button
+    type="button"
+    [class.active]="myClick"
+    class="filters_btn"
+    (click)="onDate()"
+  >
+    date &#11137;
+  </button>
+  <button
+    type="button"
+    [class.active]="myReset"
+    class="filters_btn"
+    (click)="onReset()"
+  >
+    reset
+  </button>
+  <span class="filters">by word or sentance</span>
+  <input type="text" class="filters filters_input" (input)="onInput($event)" />
 </div>

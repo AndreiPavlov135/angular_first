@@ -1,6 +1,10 @@
 <ng-container *ngIf="isShowItems">
   <app-search-item
-    *ngFor="let item of items | sortingInput: isFiltersWorks"
+    *ngFor="
+      let item of items
+        | sortingInput: isFiltersWorks
+        | sortingDate: sortByDate:reversDate
+    "
     [imgSrc]="item.snippet.thumbnails.medium.url"
     [view]="item.statistics.viewCount"
     [like]="item.statistics.likeCount"

@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+} from '@angular/core';
 import { ISearchItem } from 'src/app/models/search-item.model';
 import { ApiService } from '../services/api.service';
 
@@ -7,12 +13,15 @@ import { ApiService } from '../services/api.service';
   templateUrl: './results-block.component.html',
   styleUrls: ['./results-block.component.scss'],
 })
-export class ResultsBlockComponent implements OnInit {
+export class ResultsBlockComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() isShowItems = false;
   @Input() isFiltersWorks!: string;
+  @Input() sortByDate!: boolean;
+  @Input() reversDate!: boolean;
+  @Input() isShowDate!: boolean;
+  @Input() isResetWorks!: boolean;
 
   public items!: ISearchItem[];
-
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -21,4 +30,19 @@ export class ResultsBlockComponent implements OnInit {
       console.log(response);
     });
   }
+
+  ngOnChanges(): void {
+    if (this.isShowDate === undefined) {
+      this.sortByDate = false;
+    }
+    if (this.isShowDate) {
+      this.reversDate = !this.reversDate;
+      this.sortByDate = this.isResetWorks ? false : true;
+    }
+    if (this.isShowDate === false) {
+      this.reversDate = !this.reversDate;
+      this.sortByDate = this.isResetWorks ? false : true;
+    }
+  }
+  ngAfterViewInit(): void {}
 }

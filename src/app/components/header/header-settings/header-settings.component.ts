@@ -3,17 +3,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-header-settings',
   templateUrl: './header-settings.component.html',
-  styleUrls: ['./header-settings.component.scss']
+  styleUrls: ['./header-settings.component.scss'],
 })
 export class HeaderSettingsComponent implements OnInit {
- @Output() settingsClick = new EventEmitter<void>();
-  constructor() { }
+  @Output() settingsClick = new EventEmitter<void>();
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  public onClick(): void{
-    console.log('click');
-    this.settingsClick.next()
+  public onClick(): void {
+    this.settingsClick.next();
   }
 }

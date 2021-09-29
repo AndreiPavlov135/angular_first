@@ -1,20 +1,36 @@
-.filters_wrapper{
-   display: none;
+.filters_wrapper {
+  display: none;
 }
-.isCssClassOpen{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: #E5E5E5;
-   height: 50px;
+.isCssClassOpen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e5e5e5;
+  height: 50px;
 }
-.filters{
-   margin: 0 5px;
+.filters_btn {
+  width: 60px;
+  height: 25px;
+  border-radius: 4px;
+  margin: 0 3px;
+  cursor: pointer;
 }
-.filters_input{
-   background: #EFEFEF;
-   border: none;
+.filters {
+  margin: 0 5px;
 }
-.filters_input:focus{
-   outline: 0;
+.filters_input {
+  background: #efefef;
+  border: none;
+}
+.filters_input:focus {
+  outline: 0;
+}
+.active {
+  width: 60px;
+  height: 25px;
+  background: #2f80ed;
+  border-radius: 4px;
+  border: none;
+  color: #ffff;
+  cursor: pointer;
 }

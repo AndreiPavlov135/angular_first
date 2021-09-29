@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { FiltersComponent } from './components/header/filters/filters.component';
 import { HeaderLogoComponent } from './components/header/header-logo/header-logo.component';
@@ -14,13 +13,12 @@ import { HeaderLoginComponent } from './components/header/header-login/header-lo
 import { ResultsBlockComponent } from './components/results-block/results-block.component';
 import { SortingInputPipe } from './pipes/sorting-input.pipe';
 import { StyleDirectivDirective } from './directives/style-directiv.directive';
-
+import { SortingDatePipe } from './pipes/sorting-date.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchBoxComponent,
     SearchItemComponent,
     FiltersComponent,
     HeaderLogoComponent,
@@ -30,12 +28,10 @@ import { StyleDirectivDirective } from './directives/style-directiv.directive';
     ResultsBlockComponent,
     SortingInputPipe,
     StyleDirectivDirective,
+    SortingDatePipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
