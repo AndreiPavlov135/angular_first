@@ -14,6 +14,7 @@ import { ResultsBlockComponent } from './components/results-block/results-block.
 import { SortingInputPipe } from './pipes/sorting-input.pipe';
 import { StyleDirectivDirective } from './directives/style-directiv.directive';
 import { SortingDatePipe } from './pipes/sorting-date.pipe';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { SortingDatePipe } from './pipes/sorting-date.pipe';
     StyleDirectivDirective,
     SortingDatePipe,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule],
   providers: [],
   bootstrap: [AppComponent],
 })

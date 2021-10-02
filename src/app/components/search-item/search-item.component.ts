@@ -5,7 +5,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss'],
 })
-export class SearchItemComponent implements OnInit, OnChanges {
+export class SearchItemComponent implements OnInit {
   @Input() imgSrc!: string;
   @Input() view!: string;
   @Input() like!: string;
@@ -17,5 +17,4 @@ export class SearchItemComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit(): void {}
-  ngOnChanges() {}
 }

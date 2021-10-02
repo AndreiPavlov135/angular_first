@@ -5,22 +5,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #e5e5e5;
   height: 50px;
+  background: #e5e5e5;
 }
 .filters_btn {
+  margin: 0 3px;
   width: 60px;
   height: 25px;
   border-radius: 4px;
-  margin: 0 3px;
   cursor: pointer;
 }
 .filters {
   margin: 0 5px;
 }
 .filters_input {
-  background: #efefef;
   border: none;
+  background: #efefef;
 }
 .filters_input:focus {
   outline: 0;
@@ -28,9 +28,9 @@
 .active {
   width: 60px;
   height: 25px;
-  background: #2f80ed;
   border-radius: 4px;
   border: none;
-  color: #ffff;
   cursor: pointer;
+  background: #2f80ed;
+  color: #ffff;
 }

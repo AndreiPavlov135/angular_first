@@ -7,9 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() inputClick = new EventEmitter<boolean>();
-  @Output() onInputValue = new EventEmitter<string>();
-  @Output() appClickDate = new EventEmitter<boolean>();
-  @Output() appClickReset = new EventEmitter<boolean>();
+  @Output() inputValueChange = new EventEmitter<string>();
+  @Output() clickDate = new EventEmitter<boolean>();
+  @Output() clickReset = new EventEmitter<boolean>();
   isFiltersOpen = false;
 
   constructor() {}
@@ -22,12 +22,12 @@ export class HeaderComponent implements OnInit {
     this.inputClick.next(isOpen);
   }
   myInputValue(event: string): void {
-    this.onInputValue.next(event);
+    this.inputValueChange.next(event);
   }
   myClickDate(event: boolean): void {
-    this.appClickDate.next(event);
+    this.clickDate.next(event);
   }
   myClickReset(event: boolean): void {
-    this.appClickReset.next(event);
+    this.clickReset.next(event);
   }
 }

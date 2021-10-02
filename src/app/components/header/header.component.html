@@ -8,7 +8,7 @@
 </div>
 <app-filters
   [isOpen]="isFiltersOpen"
-  (onInputValue)="myInputValue($event)"
-  (onClickDate)="myClickDate($event)"
-  (onClickReset)="myClickReset($event)"
+  (inputValueChange)="myInputValue($event)"
+  (clickDate)="myClickDate($event)"
+  (clickReset)="myClickReset($event)"
 ></app-filters>

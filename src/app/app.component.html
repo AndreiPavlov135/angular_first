@@ -1,8 +1,8 @@
 <app-header
-  (onInputValue)="onInputFilters($event)"
+  (inputValueChange)="onInputFilters($event)"
   (inputClick)="onInputClick($event)"
-  (appClickDate)="onDateFilters($event)"
-  (appClickReset)="onClickReset($event)"
+  (clickDate)="onDateFilters($event)"
+  (clickReset)="onClickReset($event)"
 >
 </app-header>
 <app-results-block

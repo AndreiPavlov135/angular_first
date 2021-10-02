@@ -13,7 +13,7 @@ import { ApiService } from '../services/api.service';
   templateUrl: './results-block.component.html',
   styleUrls: ['./results-block.component.scss'],
 })
-export class ResultsBlockComponent implements OnInit, OnChanges, AfterViewInit {
+export class ResultsBlockComponent implements OnInit, OnChanges {
   @Input() isShowItems = false;
   @Input() isFiltersWorks!: string;
   @Input() sortByDate!: boolean;
@@ -44,5 +44,4 @@ export class ResultsBlockComponent implements OnInit, OnChanges, AfterViewInit {
       this.sortByDate = this.isResetWorks ? false : true;
     }
   }
-  ngAfterViewInit(): void {}
 }
