@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ErrorPageComponent],
+  imports: [CommonModule, RouterModule],
+  exports: [],
 })
-export class CoreModule { }
+export class CoreModule {}

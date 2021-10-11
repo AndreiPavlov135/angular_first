@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,12 @@ export class HeaderComponent implements OnInit {
   @Output() clickDate = new EventEmitter<boolean>();
   @Output() clickReset = new EventEmitter<boolean>();
   isFiltersOpen = false;
+  public logined$ = this.loginService.logined$;
 
-  constructor() {}
+  constructor(private loginService: LoginService) {}
+  logout(): void {
+    this.loginService.logout();
+  }
 
   ngOnInit(): void {}
   onSettingsClick(): void {

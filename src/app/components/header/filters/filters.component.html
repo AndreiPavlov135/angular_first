@@ -1,6 +1,8 @@
 <div [class.isCssClassOpen]="isOpen" class="filters_wrapper">
   <span class="filters">Sorting by:</span>
   <button
+    mat-raised-button
+    color="accent"
     type="button"
     [class.active]="myClick"
     class="filters_btn"
@@ -9,6 +11,8 @@
     date &#11137;
   </button>
   <button
+    mat-raised-button
+    color="accent"
     type="button"
     [class.active]="myReset"
     class="filters_btn"
@@ -16,6 +20,14 @@
   >
     reset
   </button>
-  <span class="filters">by word or sentance</span>
-  <input type="text" class="filters filters_input" (input)="onInput($event)" />
+  <span class="filters">by word or sentance:</span>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="what to search?"
+      type="text"
+      class="filters filters_input"
+      (input)="onInput($event)"
+    />
+  </mat-form-field>
 </div>

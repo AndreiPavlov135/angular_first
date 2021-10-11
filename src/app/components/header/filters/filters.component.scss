@@ -10,26 +10,15 @@
 }
 .filters_btn {
   margin: 0 3px;
+  padding: 0;
   width: 60px;
   height: 25px;
-  border-radius: 4px;
-  cursor: pointer;
+  line-height: initial;
 }
 .filters {
   margin: 0 5px;
 }
-.filters_input {
-  border: none;
-  background: #efefef;
-}
-.filters_input:focus {
-  outline: 0;
-}
 .active {
-  width: 60px;
-  height: 25px;
-  border-radius: 4px;
-  border: none;
   cursor: pointer;
   background: #2f80ed;
   color: #ffff;

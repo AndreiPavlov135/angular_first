@@ -1,0 +1,26 @@
+<mat-card class="container">
+  <mat-form-field>
+    <mat-label>Login</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="Enter Login"
+      name="login"
+      (input)="onLoginInput($event)"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      placeholder="Enter Password"
+      name="password"
+      required
+      (input)="onPasswordInput($event)"
+    />
+  </mat-form-field>
+  <button mat-raised-button color="accent" type="submit" (click)="auth()">
+    Login
+  </button>
+</mat-card>

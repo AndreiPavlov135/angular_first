@@ -1,11 +1,14 @@
 <div class="heder_wrapper">
   <app-header-logo></app-header-logo>
-  <app-header-input (inputClick)="myInpytClick($event)"></app-header-input>
-  <app-header-settings
-    (settingsClick)="onSettingsClick()"
-  ></app-header-settings>
-  <app-header-login></app-header-login>
+  <ng-container *ngIf="logined$ | async">
+    <app-header-input (inputClick)="myInpytClick($event)"></app-header-input>
+    <app-header-settings
+      (settingsClick)="onSettingsClick()"
+    ></app-header-settings>
+    <app-header-login (click)="logout()"></app-header-login>
+  </ng-container>
 </div>
+
 <app-filters
   [isOpen]="isFiltersOpen"
   (inputValueChange)="myInputValue($event)"

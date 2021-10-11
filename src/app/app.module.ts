@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,6 +15,8 @@ import { SortingInputPipe } from './pipes/sorting-input.pipe';
 import { StyleDirectivDirective } from './directives/style-directiv.directive';
 import { SortingDatePipe } from './pipes/sorting-date.pipe';
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,13 @@ import { CoreModule } from './core/core.module';
     StyleDirectivDirective,
     SortingDatePipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    AuthModule,
+    NoopAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
