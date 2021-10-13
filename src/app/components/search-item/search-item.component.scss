@@ -23,14 +23,9 @@
 }
 
 .btn_search_item {
-  display: block;
-  width: 120px;
-  height: 32px;
-  border: none;
-  border-radius: 5px;
+  padding: 0 30px;
+  line-height: 30px;
   background: #2f80ed;
-  box-shadow: 3px -3px 10px #2f80ed;
-  color: white;
 }
 .btn_search_item,
 .item_icons {

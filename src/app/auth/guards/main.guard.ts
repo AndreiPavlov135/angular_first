@@ -5,25 +5,19 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MainGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) {}
   public canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.isLoggedIn()) return true;
+    if (this.loginService.loggedIn) return true;
     this.router.navigate(['login']);
     return false;
-  }
-
-  public isLoggedIn(): boolean {
-    let status = false;
-    // if (localStorage.getItem('user') === 'loggedin') status = !status;
-    // return status;
-    return localStorage.getItem('user') === 'loggedin' ? !status : status;
   }
 }

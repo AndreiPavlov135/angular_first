@@ -23,16 +23,16 @@ export class HeaderComponent implements OnInit {
   onSettingsClick(): void {
     this.isFiltersOpen = !this.isFiltersOpen;
   }
-  myInpytClick(isOpen: boolean): void {
+  onInpytClick(isOpen: boolean): void {
     this.inputClick.next(isOpen);
   }
-  myInputValue(event: string): void {
+  onInputValue(event: string): void {
     this.inputValueChange.next(event);
   }
-  myClickDate(event: boolean): void {
+  onClickDate(event: boolean): void {
     this.clickDate.next(event);
   }
-  myClickReset(event: boolean): void {
+  onClickReset(event: boolean): void {
     this.clickReset.next(event);
   }
 }
