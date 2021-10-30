@@ -7,22 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first-project';
-
-  isItemsOpen = false;
-  inputContent!: string;
-  isDateFilters!: boolean;
-  isReset!: boolean;
-  onInputClick(isOpen: boolean): void {
-    this.isItemsOpen = isOpen;
-  }
-
-  onInputFilters(event: string): void {
-    this.inputContent = event;
-  }
-  onDateFilters(isDate: boolean): void {
-    this.isDateFilters = isDate;
-  }
-  onClickReset(clickReset: boolean): void {
-    this.isReset = clickReset;
-  }
 }

@@ -1,11 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CheckInputService } from 'src/app/core/results-block/services/check-input.service';
 
 @Component({
   selector: 'app-header-input',
@@ -13,15 +7,14 @@ import {
   styleUrls: ['./header-input.component.scss'],
 })
 export class HeaderInputComponent implements OnInit {
-  @Output() inputClick = new EventEmitter<boolean>();
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
-  constructor() {}
+  constructor(private checkInputService: CheckInputService) {}
 
   ngOnInit(): void {}
   public onInputClick(event: Event): void {
     event.preventDefault();
     if (this.input.nativeElement.value) {
-      this.inputClick.next(true);
+      this.checkInputService.check();
     }
   }
 }

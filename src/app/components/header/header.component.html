@@ -1,7 +1,7 @@
 <div class="heder_wrapper">
   <app-header-logo></app-header-logo>
   <ng-container *ngIf="logined$ | async">
-    <app-header-input (inputClick)="onInpytClick($event)"></app-header-input>
+    <app-header-input></app-header-input>
     <app-header-settings
       (settingsClick)="onSettingsClick()"
     ></app-header-settings>
@@ -9,9 +9,4 @@
   </ng-container>
 </div>
 
-<app-filters
-  [isOpen]="isFiltersOpen"
-  (inputValueChange)="onInputValue($event)"
-  (clickDate)="onClickDate($event)"
-  (clickReset)="onClickReset($event)"
-></app-filters>
+<app-filters [isOpen]="isFiltersOpen"></app-filters>

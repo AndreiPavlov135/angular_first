@@ -1,15 +1,2 @@
-<app-header
-  (inputValueChange)="onInputFilters($event)"
-  (inputClick)="onInputClick($event)"
-  (clickDate)="onDateFilters($event)"
-  (clickReset)="onClickReset($event)"
->
-</app-header>
-<app-results-block
-  [isFiltersWorks]="inputContent"
-  [isShowItems]="isItemsOpen"
-  [isShowDate]="isDateFilters"
-  [isResetWorks]="isReset"
->
-</app-results-block>
+<app-header> </app-header>
 <router-outlet></router-outlet>
