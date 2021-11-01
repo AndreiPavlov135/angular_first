@@ -3,7 +3,7 @@
     *ngFor="
       let item of items
         | sortingInput: (inputValue$ | async)
-        | sortingDate: sortByDate:(sorted$ | async)
+        | sortingDate: sortByDate:reversDate
     "
     [imgSrc]="item.snippet.thumbnails.medium.url"
     [view]="item.statistics.viewCount"

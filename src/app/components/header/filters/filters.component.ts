@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DateService } from 'src/app/core/results-block/services/date.service';
 import { FiltersService } from 'src/app/core/results-block/services/filters.service';
 
@@ -7,26 +7,32 @@ import { FiltersService } from 'src/app/core/results-block/services/filters.serv
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss'],
 })
-export class FiltersComponent implements OnInit {
+export class FiltersComponent {
   @Input() isOpen!: boolean;
-  public isButtonActive = false;
-  public sortDate = false;
+  public sortDateActive = false;
+
+  private revers = false;
+
   constructor(
     private filtersService: FiltersService,
     private dateService: DateService
   ) {}
 
-  ngOnInit(): void {}
-
   public onInput(event: any): void {
     this.filtersService.inputCheck(event.target.value);
   }
+
   public onDate(): void {
-    this.sortDate = !this.sortDate;
-    this.dateService.sort(this.sortDate);
-    this.isButtonActive = !this.isButtonActive;
+    if (!this.sortDateActive) {
+      this.sortDateActive = !this.sortDateActive;
+      this.dateService.sortByDate(this.sortDateActive);
+    } else {
+      this.revers = !this.revers;
+      this.dateService.revers(this.revers);
+    }
   }
   public onReset(): void {
+    this.sortDateActive = false;
     this.dateService.reset();
   }
 }

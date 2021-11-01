@@ -1,22 +1,42 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { IDateAction } from 'src/app/models/date-action.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DateService {
-  private sortSubject = new BehaviorSubject<boolean | null>(null);
-  private resetSubject = new Subject<void>();
+  private actionSubject = new BehaviorSubject<IDateAction>({
+    sortByDate: false,
+    revers: false,
+  });
 
-  public sorted$ = this.sortSubject.asObservable();
-  public reseted$ = this.resetSubject.asObservable();
+  public action$ = this.actionSubject.asObservable();
 
-  constructor() {}
+  public sortByDate(sortByDate: boolean): void {
+    const action = this.actionSubject.value;
 
-  public sort(sortDate: boolean): void {
-    this.sortSubject.next(sortDate);
+    this.actionSubject.next({
+      ...action,
+      sortByDate,
+    });
   }
+
   public reset(): void {
-    this.resetSubject.next();
+    const action = this.actionSubject.value;
+
+    this.actionSubject.next({
+      ...action,
+      sortByDate: false,
+    });
+  }
+
+  public revers(revers: boolean): void {
+    const action = this.actionSubject.value;
+
+    this.actionSubject.next({
+      ...action,
+      revers,
+    });
   }
 }

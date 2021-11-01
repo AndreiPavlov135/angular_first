@@ -11,16 +11,15 @@ import { FiltersService } from '../../services/filters.service';
   styleUrls: ['./results-block.component.scss'],
 })
 export class ResultsBlockComponent implements OnInit {
-  @Input() sortByDate!: boolean;
-  @Input() reversDate!: boolean;
   @Input() isShowDate!: boolean;
   @Input() isResetWorks!: boolean;
 
   public items!: ISearchItem[];
   public inputed$ = this.checkInputService.inputed$;
   public inputValue$ = this.filtersService.inputValue$;
-  public sorted$ = this.dateService.sorted$;
-  public reseted$ = this.dateService.reseted$;
+
+  public sortByDate!: boolean;
+  public reversDate!: boolean;
 
   constructor(
     private apiService: ApiService,
@@ -35,17 +34,11 @@ export class ResultsBlockComponent implements OnInit {
       console.log(response);
     });
 
-    this.sorted$.subscribe((val) => {
-      if (val === null) {
-        this.sortByDate = false;
-      } else {
-        this.sortByDate = true;
-      }
-    });
+    this.dateService.action$.subscribe((val) => {
+      const { sortByDate, revers } = val;
 
-    this.reseted$.subscribe(() => {
-      this.sortByDate = false;
+      this.sortByDate = sortByDate;
+      this.reversDate = revers;
     });
   }
-  ngOnChanges(): void {}
 }
