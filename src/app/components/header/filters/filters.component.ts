@@ -9,7 +9,7 @@ import { FiltersService } from 'src/app/core/results-block/services/filters.serv
 })
 export class FiltersComponent implements OnInit {
   @Input() isOpen!: boolean;
-  public myClick = false;
+  public isButtonActive = false;
   public sortDate = false;
   constructor(
     private filtersService: FiltersService,
@@ -24,7 +24,7 @@ export class FiltersComponent implements OnInit {
   public onDate(): void {
     this.sortDate = !this.sortDate;
     this.dateService.sort(this.sortDate);
-    this.myClick = !this.myClick;
+    this.isButtonActive = !this.isButtonActive;
   }
   public onReset(): void {
     this.dateService.reset();
