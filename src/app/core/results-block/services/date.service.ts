@@ -13,18 +13,17 @@ export class DateService {
 
   public action$ = this.actionSubject.asObservable();
 
-  public sortByDate(sortByDate: boolean): void {
-    const action = this.actionSubject.value;
-
-    this.actionSubject.next({
-      ...action,
-      sortByDate,
-    });
+  public sortByDate(newSortByDate: boolean): void {
+    const oldAction = this.actionSubject.value;
+    const newAction = {
+      sortByDate: newSortByDate,
+      revers: oldAction.revers,
+    };
+    this.actionSubject.next(newAction);
   }
 
   public reset(): void {
     const action = this.actionSubject.value;
-
     this.actionSubject.next({
       ...action,
       sortByDate: false,
@@ -33,7 +32,6 @@ export class DateService {
 
   public revers(revers: boolean): void {
     const action = this.actionSubject.value;
-
     this.actionSubject.next({
       ...action,
       revers,

@@ -7,8 +7,8 @@ import { ISearchItem } from '../models/search-item.model';
 export class SortingDatePipe implements PipeTransform {
   transform(
     items: ISearchItem[],
-    sortByDate: boolean | null,
-    reversDate: boolean | null
+    sortByDate: boolean,
+    reversDate: boolean
   ): ISearchItem[] {
     const newItems = [...items];
     if (sortByDate && reversDate)

@@ -21,9 +21,9 @@ export class StyleDirectivDirective implements OnChanges {
         (1000 * 3600 * 24)
     );
 
-    if (myDate < 750) cssClass = 'blueClass';
-    if (myDate > 750 && myDate < 1000) cssClass = 'redClass';
-    if (myDate > 1000) cssClass = 'yellowClass';
+    if (myDate < 30) cssClass = 'blueClass';
+    if (myDate >= 30 && myDate < 90) cssClass = 'redClass';
+    if (myDate >= 90) cssClass = 'yellowClass';
     this.renderer.addClass(this.el.nativeElement, cssClass);
   }
 }

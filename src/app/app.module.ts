@@ -11,6 +11,7 @@ import { HeaderLoginComponent } from './components/header/header-login/header-lo
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     AuthModule,
     NoopAnimationsModule,
+    HttpClientModule,
   ],
 
   providers: [],
