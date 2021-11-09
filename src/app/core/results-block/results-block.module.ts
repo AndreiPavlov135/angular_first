@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { StyleDirectivDirective } from 'src/app/directives/style-directiv.directive';
 import { SortingInputPipe } from 'src/app/pipes/sorting-input.pipe';
 import { SortingDatePipe } from 'src/app/pipes/sorting-date.pipe';
+import { DetailsPageComponent } from './components/details-page/details-page.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SortingDatePipe } from 'src/app/pipes/sorting-date.pipe';
     StyleDirectivDirective,
     SortingInputPipe,
     SortingDatePipe,
+    DetailsPageComponent,
   ],
   imports: [CommonModule, MatButtonModule],
   exports: [MatButtonModule],

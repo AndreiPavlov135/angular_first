@@ -29,6 +29,7 @@ export class ApiService {
       .set('key', this.API_KEY);
     return this.http.get<ISearchRespons>(`${this.SEARCH_URL}`, { params }).pipe(
       map((videoResponse) => {
+        console.log(videoResponse);
         const listItems: string = videoResponse.items
           .map((items) => items.id.videoId)
           .join(',');
@@ -38,15 +39,18 @@ export class ApiService {
         return this.http.get<ISearchRespons>(
           `${this.VIDEO_URL}?key=${this.API_KEY}&id=${listItems}&part=snippet,statistics`
         );
+      }),
+      catchError(() => {
+        console.log('ошибка');
+        return of({} as ISearchRespons);
       })
-      // catchError((error: HttpErrorResponse) => {
-      //   return of(error);
-      // })
     );
   }
 
   public getItemById(id: number): Observable<ISearchItem> {
-    return this.http.get<ISearchItem>(`${this.VIDEO_URL}/${id}`);
+    return this.http.get<ISearchItem>(
+      `${this.VIDEO_URL}?key=${this.API_KEY}/&part=snippet,statistics`
+    );
   }
 
   // public getYouTubeMoves(): Observable<ISearchRespons> {

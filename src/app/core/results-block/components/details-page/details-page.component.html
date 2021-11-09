@@ -1,4 +1,4 @@
-<div class="item_wrapper" [appStyleDirectiv]="publicDate">
+<div class="item_wrapper">
   <img [src]="imgSrc" alt="img" class="item_img" />
   <div class="item_icons">
     <img src="../../../assets/image/viewed.png" alt="viewed" />
@@ -9,10 +9,6 @@
     <span>{{ disLike }}</span>
     <img src="../../../assets/image/Group 9.png" alt="group" />
     <span>{{ comment }}</span>
-    <!-- <span>{{videoId}}</span> -->
   </div>
   <div class="item_title">{{ title }}</div>
-  <a mat-raised-button type="submit" class="btn_search_item" routerLink="">
-    more...
-  </a>
 </div>

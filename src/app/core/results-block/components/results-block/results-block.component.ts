@@ -33,6 +33,7 @@ export class ResultsBlockComponent implements OnInit {
   public viewResultsBlock(cont: string): void {
     this.apiService.getYouTubeMoves(cont).subscribe((response) => {
       this.items = response.items;
+      console.log(this.items);
     });
   }
 
