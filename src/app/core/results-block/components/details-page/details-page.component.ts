@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { ApiService } from 'src/app/components/services/api.service';
+import { ISearchItem } from 'src/app/models/search-item.model';
 
 @Component({
   selector: 'app-details-page',
@@ -7,18 +10,19 @@ import { ApiService } from 'src/app/components/services/api.service';
   styleUrls: ['./details-page.component.scss'],
 })
 export class DetailsPageComponent implements OnInit {
-  @Input() imgSrc!: string;
-  @Input() view!: string;
-  @Input() like!: string;
-  @Input() disLike!: string;
-  @Input() comment!: string;
-  @Input() title!: string;
-  @Input() publicDate!: string;
-  constructor(private apiService: ApiService) {}
+  public item!: ISearchItem;
+  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.apiService.getItemById(3300107).subscribe((resp) => {
-      console.log(resp);
-    });
+    this.route.params
+      .pipe(
+        map((params) => params.id),
+        switchMap((id) => this.apiService.getItemById(id)),
+        tap((resp) => {
+          this.item = resp.items[0];
+          console.log(this.item);
+        })
+      )
+      .subscribe();
   }
 }

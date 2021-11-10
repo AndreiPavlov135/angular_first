@@ -7,6 +7,8 @@ import { StyleDirectivDirective } from 'src/app/directives/style-directiv.direct
 import { SortingInputPipe } from 'src/app/pipes/sorting-input.pipe';
 import { SortingDatePipe } from 'src/app/pipes/sorting-date.pipe';
 import { DetailsPageComponent } from './components/details-page/details-page.component';
+import { RouterModule } from '@angular/router';
+import { ResolveImgUrlPipe } from 'src/app/pipes/resolve-img-url.pipe';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { DetailsPageComponent } from './components/details-page/details-page.com
     SortingInputPipe,
     SortingDatePipe,
     DetailsPageComponent,
+    ResolveImgUrlPipe,
   ],
-  imports: [CommonModule, MatButtonModule],
+  imports: [CommonModule, MatButtonModule, RouterModule],
   exports: [MatButtonModule],
 })
 export class ResultsBlockModule {}

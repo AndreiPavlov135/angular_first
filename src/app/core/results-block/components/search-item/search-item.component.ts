@@ -13,8 +13,7 @@ export class SearchItemComponent implements OnInit {
   @Input() comment!: string;
   @Input() title!: string;
   @Input() publicDate!: string;
-  @Input() videoId!: string;
-
+  @Input() id!: string;
   constructor() {}
 
   ngOnInit(): void {}

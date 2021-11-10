@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ISearchRespons } from 'src/app/models/search-respons.model';
-import { catchError, delay, map, mergeMap } from 'rxjs/operators';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpParams,
-} from '@angular/common/http';
-import { ISearchItem } from 'src/app/models/search-item.model';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { IVideoResponse } from 'src/app/models/video-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -27,9 +23,8 @@ export class ApiService {
       .set('maxResults', '10')
       .set('q', searchText || '')
       .set('key', this.API_KEY);
-    return this.http.get<ISearchRespons>(`${this.SEARCH_URL}`, { params }).pipe(
+    return this.http.get<IVideoResponse>(`${this.SEARCH_URL}`, { params }).pipe(
       map((videoResponse) => {
-        console.log(videoResponse);
         const listItems: string = videoResponse.items
           .map((items) => items.id.videoId)
           .join(',');
@@ -47,13 +42,9 @@ export class ApiService {
     );
   }
 
-  public getItemById(id: number): Observable<ISearchItem> {
-    return this.http.get<ISearchItem>(
-      `${this.VIDEO_URL}?key=${this.API_KEY}/&part=snippet,statistics`
+  public getItemById(id: string): Observable<ISearchRespons> {
+    return this.http.get<ISearchRespons>(
+      `${this.VIDEO_URL}?key=${this.API_KEY}&id=${id}&part=snippet,statistics`
     );
   }
-
-  // public getYouTubeMoves(): Observable<ISearchRespons> {
-  //   return of(youTubeResponse).pipe(delay(1000));
-  // }
 }

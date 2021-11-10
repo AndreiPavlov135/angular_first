@@ -9,10 +9,13 @@
     <span>{{ disLike }}</span>
     <img src="../../../assets/image/Group 9.png" alt="group" />
     <span>{{ comment }}</span>
-    <!-- <span>{{videoId}}</span> -->
   </div>
   <div class="item_title">{{ title }}</div>
-  <a mat-raised-button type="submit" class="btn_search_item" routerLink="">
+  <a
+    mat-raised-button
+    class="btn_search_item"
+    routerLink="/details-page/{{ id }}"
+  >
     more...
   </a>
 </div>

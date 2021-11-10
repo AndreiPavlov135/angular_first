@@ -1,14 +1,25 @@
-<div class="item_wrapper">
-  <img [src]="imgSrc" alt="img" class="item_img" />
-  <div class="item_icons">
-    <img src="../../../assets/image/viewed.png" alt="viewed" />
-    <span>{{ view }}</span>
-    <img src="../../../assets/image/liked.png" alt="liked" />
-    <span>{{ like }}</span>
-    <img src="../../../assets/image/dislike.png" alt="dislike" />
-    <span>{{ disLike }}</span>
-    <img src="../../../assets/image/Group 9.png" alt="group" />
-    <span>{{ comment }}</span>
+<ng-container *ngIf="item">
+  <div class="wrapper_content">
+    <img
+      [src]="item.snippet.thumbnails | resolveImgUrl"
+      alt="img"
+      class="item_img"
+    />
+    <div class="wrapper_info">
+      <div class="item_title">{{ item.snippet.title }}</div>
+      <p>Discription:</p>
+      <div class="discription">{{ item.snippet.description }}</div>
+      <div class="item_icons">
+        <img src="../../../assets/image/viewed.png" alt="viewed" />
+        <span>{{ item.statistics.viewCount }}</span>
+        <img src="../../../assets/image/liked.png" alt="liked" />
+        <span>{{ item.statistics.likeCount }}</span>
+        <img src="../../../assets/image/dislike.png" alt="dislike" />
+        <span>{{ item.statistics.dislikeCount }}</span>
+        <img src="../../../assets/image/Group 9.png" alt="group" />
+        <span>{{ item.statistics.commentCount }}</span>
+      </div>
+      <a routerLink="/main">&#10094; Back</a>
+    </div>
   </div>
-  <div class="item_title">{{ title }}</div>
-</div>
+</ng-container>

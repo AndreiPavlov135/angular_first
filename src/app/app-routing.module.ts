@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'main', component: ResultsBlockComponent, canActivate: [MainGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', component: ErrorPageComponent },
   { path: 'details-page/:id', component: DetailsPageComponent },
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({

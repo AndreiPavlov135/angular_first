@@ -1,9 +1,13 @@
-export interface ISearchItem {
+export interface IVideoItems {
   kind: string;
   etag: string;
-  id: string;
+  id: ISearchItemId;
   snippet: ISnippet;
   statistics: { [key: string]: string };
+}
+interface ISearchItemId {
+  kind: string;
+  videoId: string;
 }
 
 interface ISnippet {
@@ -11,7 +15,13 @@ interface ISnippet {
   channelId: string;
   title: string;
   description: string;
-  thumbnails: IThumbnails;
+  thumbnails: {
+    default: IThumbnails;
+    medium: IThumbnails;
+    high: IThumbnails;
+    maxres: IThumbnails;
+    standard: IThumbnails;
+  };
   channelTitle: string;
   tags: string[];
   categoryId: string;
@@ -20,14 +30,8 @@ interface ISnippet {
   defaultLanguage?: string;
   defaultAudioLanguage: string;
 }
-export interface IThumbnails {
-  default: IThumbnail;
-  medium: IThumbnail;
-  high: IThumbnail;
-  maxres: IThumbnail;
-  standard: IThumbnail;
-}
-interface IThumbnail {
+
+interface IThumbnails {
   url: string;
   width: number;
   height: number;
