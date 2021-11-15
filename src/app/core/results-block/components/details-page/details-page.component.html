@@ -19,6 +19,7 @@
         <img src="../../../assets/image/Group 9.png" alt="group" />
         <span>{{ item.statistics.commentCount }}</span>
       </div>
+      <span>{{ item.snippet.publishedAt | date: "mediumDate" }}</span>
       <a routerLink="/main">&#10094; Back</a>
     </div>
   </div>
