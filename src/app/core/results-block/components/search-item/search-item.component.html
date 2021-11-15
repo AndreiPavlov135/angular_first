@@ -1,5 +1,7 @@
 <div class="item_wrapper" [appStyleDirectiv]="publicDate">
-  <img [src]="imgSrc" alt="img" class="item_img" />
+  <a routerLink="/video-player/{{ id }}"
+    ><img [src]="imgSrc" alt="img" class="item_img"
+  /></a>
   <div class="item_icons">
     <img src="../../../assets/image/viewed.png" alt="viewed" />
     <span>{{ view }}</span>

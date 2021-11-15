@@ -20,7 +20,7 @@ export class ApiService {
     const params: HttpParams = new HttpParams()
       .set('type', 'video')
       .set('part', 'snippet')
-      .set('maxResults', '10')
+      .set('maxResults', '6')
       .set('q', searchText || '')
       .set('key', this.API_KEY);
     return this.http.get<IVideoResponse>(`${this.SEARCH_URL}`, { params }).pipe(

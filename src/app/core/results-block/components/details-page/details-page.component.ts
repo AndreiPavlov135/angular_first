@@ -20,7 +20,6 @@ export class DetailsPageComponent implements OnInit {
         switchMap((id) => this.apiService.getItemById(id)),
         tap((resp) => {
           this.item = resp.items[0];
-          console.log(this.item);
         })
       )
       .subscribe();

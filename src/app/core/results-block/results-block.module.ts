@@ -9,6 +9,8 @@ import { SortingDatePipe } from 'src/app/pipes/sorting-date.pipe';
 import { DetailsPageComponent } from './components/details-page/details-page.component';
 import { RouterModule } from '@angular/router';
 import { ResolveImgUrlPipe } from 'src/app/pipes/resolve-img-url.pipe';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { ResolveImgUrlPipe } from 'src/app/pipes/resolve-img-url.pipe';
     SortingDatePipe,
     DetailsPageComponent,
     ResolveImgUrlPipe,
+    VideoPlayerComponent,
   ],
-  imports: [CommonModule, MatButtonModule, RouterModule],
+  imports: [CommonModule, MatButtonModule, RouterModule, YouTubePlayerModule],
   exports: [MatButtonModule],
 })
 export class ResultsBlockModule {}
