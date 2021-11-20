@@ -1,12 +1,7 @@
-<div
-  class="item_wrapper"
-  [ngClass]="{
-    blueClass: myDate < 750,
-    redClass: myDate > 750 && myDate < 1000,
-    yellowClass: myDate > 1000
-  }"
->
-  <img [src]="imgSrc" alt="img" class="item_img" />
+<div class="item_wrapper" [appStyleDirectiv]="publicDate">
+  <a routerLink="/video-player/{{ id }}"
+    ><img [src]="imgSrc" alt="img" class="item_img"
+  /></a>
   <div class="item_icons">
     <img src="../../../assets/image/viewed.png" alt="viewed" />
     <span>{{ view }}</span>
@@ -18,5 +13,11 @@
     <span>{{ comment }}</span>
   </div>
   <div class="item_title">{{ title }}</div>
-  <button type="submit" class="btn_search_item">more...</button>
+  <a
+    mat-raised-button
+    class="btn_search_item"
+    routerLink="/details-page/{{ id }}"
+  >
+    more...
+  </a>
 </div>

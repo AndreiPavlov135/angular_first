@@ -1,20 +1,25 @@
-.filters_wrapper{
-   display: none;
+.filters_wrapper {
+  display: none;
 }
-.isCssClassOpen{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: #E5E5E5;
-   height: 50px;
+.isCssClassOpen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background: #e5e5e5;
 }
-.filters{
-   margin: 0 5px;
+.filters_btn {
+  margin: 0 3px;
+  padding: 0;
+  width: 60px;
+  height: 25px;
+  line-height: initial;
 }
-.filters_input{
-   background: #EFEFEF;
-   border: none;
+.filters {
+  margin: 0 5px;
 }
-.filters_input:focus{
-   outline: 0;
+.active {
+  cursor: pointer;
+  background: #2f80ed;
+  color: #ffff;
 }

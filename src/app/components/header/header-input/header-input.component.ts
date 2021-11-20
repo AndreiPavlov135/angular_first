@@ -1,24 +1,27 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CheckInputService } from 'src/app/core/results-block/services/check-input.service';
+import { SearchService } from 'src/app/core/results-block/services/search.service';
 
 @Component({
   selector: 'app-header-input',
   templateUrl: './header-input.component.html',
-  styleUrls: ['./header-input.component.scss']
+  styleUrls: ['./header-input.component.scss'],
 })
 export class HeaderInputComponent implements OnInit {
-  @Output() inputClick = new EventEmitter<boolean>();
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
-  constructor() {
-   
-  }
 
-  ngOnInit(): void {
-  }
-  public onInputClick(event: Event): void{
+  constructor(
+    private checkInputService: CheckInputService,
+    private searchService: SearchService
+  ) {}
+
+  ngOnInit(): void {}
+  public onInputClick(event: Event): void {
     event.preventDefault();
-    if(this.input.nativeElement.value){ 
-      this.inputClick.next(true);
-      //console.log(this.input.nativeElement)
+    const inputValue = this.input.nativeElement.value;
+    if (inputValue) {
+      this.searchService.inputSearch(inputValue);
+      this.checkInputService.check();
     }
   }
 }

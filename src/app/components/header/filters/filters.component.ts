@@ -1,19 +1,38 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DateService } from 'src/app/core/results-block/services/date.service';
+import { FiltersService } from 'src/app/core/results-block/services/filters.service';
 
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss'],
 })
-export class FiltersComponent implements OnInit {
-  @Output() onInputValue = new EventEmitter<string>();
+export class FiltersComponent {
   @Input() isOpen!: boolean;
-  constructor() {}
+  public sortDateActive = false;
 
-  ngOnInit(): void {}
+  private revers = false;
+
+  constructor(
+    private filtersService: FiltersService,
+    private dateService: DateService
+  ) {}
 
   public onInput(event: any): void {
-    const myValue = event.target.value;
-    this.onInputValue.next(myValue);
+    this.filtersService.inputCheck(event.target.value);
+  }
+
+  public onDate(): void {
+    if (!this.sortDateActive) {
+      this.sortDateActive = !this.sortDateActive;
+      this.dateService.sortByDate(this.sortDateActive);
+    } else {
+      this.revers = !this.revers;
+      this.dateService.revers(this.revers);
+    }
+  }
+  public onReset(): void {
+    this.sortDateActive = false;
+    this.dateService.reset();
   }
 }

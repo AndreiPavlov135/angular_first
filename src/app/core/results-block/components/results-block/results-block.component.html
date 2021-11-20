@@ -1,6 +1,10 @@
-<ng-container *ngIf="isShowItems">
+<ng-container *ngIf="inputed$ | async">
   <app-search-item
-    *ngFor="let item of items | sortingInput: isFiltersWorks"
+    *ngFor="
+      let item of items
+        | sortingInput: (inputValue$ | async)
+        | sortingDate: sortByDate:reversDate
+    "
     [imgSrc]="item.snippet.thumbnails.medium.url"
     [view]="item.statistics.viewCount"
     [like]="item.statistics.likeCount"
@@ -8,5 +12,6 @@
     [comment]="item.statistics.commentCount"
     [title]="item.snippet.title"
     [publicDate]="item.snippet.publishedAt"
+    [id]="item.id"
   ></app-search-item>
 </ng-container>
